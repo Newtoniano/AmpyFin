@@ -1,11 +1,7 @@
-from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.data.requests import StockBarsRequest
 from alpaca.data.timeframe import TimeFrame
 from datetime import datetime, timedelta
 
-
-import numpy as np
-import pandas as pd
 
 #V2 is now available so please use those methods instead.
 def get_historical_data(ticker, client, days=100):

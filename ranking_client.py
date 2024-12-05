@@ -1,55 +1,13 @@
-from polygon import RESTClient
-from config import POLYGON_API_KEY, FINANCIAL_PREP_API_KEY, MONGO_DB_USER, MONGO_DB_PASS, API_KEY, API_SECRET, BASE_URL
-import threading
-from concurrent.futures import ThreadPoolExecutor
-
-from urllib.request import urlopen
-from zoneinfo import ZoneInfo
+from config import FINANCIAL_PREP_API_KEY, MONGO_DB_USER, MONGO_DB_PASS, API_KEY, API_SECRET
 from pymongo import MongoClient
 import time
-from datetime import datetime, timedelta
-import alpaca
-from alpaca.trading.client import TradingClient
-from alpaca.data.timeframe import TimeFrame, TimeFrameUnit
+from datetime import datetime
 from alpaca.data.historical.stock import StockHistoricalDataClient
-from alpaca.trading.stream import TradingStream
-from alpaca.data.live.stock import StockDataStream
-from alpaca.data.requests import (
-    StockBarsRequest,
-    StockTradesRequest,
-    StockQuotesRequest
-)
-from alpaca.trading.requests import (
-    GetAssetsRequest, 
-    MarketOrderRequest, 
-    LimitOrderRequest, 
-    StopOrderRequest, 
-    StopLimitOrderRequest, 
-    TakeProfitRequest, 
-    StopLossRequest, 
-    TrailingStopOrderRequest, 
-    GetOrdersRequest, 
-    ClosePositionRequest
-)
-from alpaca.trading.enums import ( 
-    AssetStatus, 
-    AssetExchange, 
-    OrderSide, 
-    OrderType, 
-    TimeInForce, 
-    OrderClass, 
-    QueryOrderStatus
-)
-from alpaca.common.exceptions import APIError
 import strategies.trading_strategies_v2 as trading_strategies
 import math
-import yfinance as yf
 import logging
-from collections import Counter
-from trading_client import market_status
 from helper_files.client_helper import strategies, get_latest_price, get_ndaq_tickers
 
-from datetime import datetime 
 import heapq 
 
 

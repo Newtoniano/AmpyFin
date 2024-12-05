@@ -1,16 +1,6 @@
-from alpaca.data.historical import StockHistoricalDataClient
-from alpaca.data.requests import StockBarsRequest
-from alpaca.data.timeframe import TimeFrame
-from datetime import datetime, timedelta
-import stats
 import numpy as np
-import pandas as pd
-import scipy
-import scipy.spatial
-import scipy.stats
 import pywt  # PyWavelets for wavelet analysis
 import ripser  # For topological data analysis
-from scipy.spatial.distance import pdist, squareform
 from scipy.special import zeta  # For Riemann zeta function
 
 def pairs_trading_strategy(ticker, current_price, historical_data, account_cash, portfolio_qty, total_portfolio_value):

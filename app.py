@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI, HTTPException
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel
-from typing import List, Dict, Optional
+from typing import List, Optional
 from bson import ObjectId
 from fastapi.middleware.cors import CORSMiddleware
 from strategies.trading_strategies_v1 import get_historical_data

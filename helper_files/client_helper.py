@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-from alpaca.trading.client import TradingClient
+from urllib.request import urlopen
+import json
 from alpaca.trading.requests import MarketOrderRequest
 from alpaca.trading.enums import OrderSide, TimeInForce
 from datetime import datetime
@@ -48,11 +49,7 @@ strategies = [rsi_strategy, bollinger_bands_strategy, momentum_strategy, mean_re
    bollinger_band_width_strategy, commodity_channel_index_strategy, force_index_strategy,  
    ichimoku_cloud_strategy, klinger_oscillator_strategy, money_flow_index_strategy,  
    on_balance_volume_strategy, stochastic_oscillator_strategy, euler_fibonacci_zone_strategy] + beta_strategies
-from urllib.request import urlopen
-import json
-import certifi
-from zoneinfo import ZoneInfo
-import time
+
 
 # MongoDB connection helper
 def connect_to_mongo(mongo_url):

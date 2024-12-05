@@ -1,26 +1,16 @@
 from polygon import RESTClient
-from config import POLYGON_API_KEY, FINANCIAL_PREP_API_KEY, MONGO_DB_USER, MONGO_DB_PASS, API_KEY, API_SECRET, BASE_URL
-import json
-import certifi
-from urllib.request import urlopen
-from zoneinfo import ZoneInfo
+from config import POLYGON_API_KEY, FINANCIAL_PREP_API_KEY, MONGO_DB_USER, MONGO_DB_PASS, API_KEY, API_SECRET
 from pymongo import MongoClient
 import time
-from datetime import datetime, timedelta
 from helper_files.client_helper import place_order, get_ndaq_tickers, market_status, strategies, get_latest_price 
 from alpaca.trading.client import TradingClient
-from alpaca.data.timeframe import TimeFrame, TimeFrameUnit
 from alpaca.data.historical.stock import StockHistoricalDataClient
-from alpaca.trading.requests import MarketOrderRequest
-from alpaca.trading.enums import OrderSide, TimeInForce
+from alpaca.trading.enums import OrderSide
 from strategies.trading_strategies_v1 import get_historical_data
 import yfinance as yf
 import logging
-from collections import Counter
-from statistics import median, mode
-import statistics
+from statistics import median
 import heapq
-import requests
 
 
 # MongoDB connection string

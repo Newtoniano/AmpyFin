@@ -1,0 +1,16 @@
+services:
+  questdb:
+    image: questdb/questdb:latest
+    pull_policy: always
+    container_name: questdb
+    ports:
+      - "127.0.0.1:9000:9000" # make sure only localhost can access, if you want to access from outside your local machine, change to 0.0.0.0:9000 and so on for the others
+      - "127.0.0.1:9009:9009"
+      - "127.0.0.1:8812:8812"
+      - "127.0.0.1:9003:9003"
+    volumes:
+      - questdb:/root/.questdb/
+    restart: unless-stopped
+
+volumes:
+  questdb:
